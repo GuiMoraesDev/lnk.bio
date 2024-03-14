@@ -30,12 +30,12 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={twMerge(
-          "flex h-[100dvh] w-full flex-col items-center overflow-x-hidden bg-slate-900",
+          "flex h-screen w-full flex-col items-center justify-center bg-gray-50 text-slate-800",
           lato.className,
           firaSans.className,
         )}
       >
-        {children}
+        <div className="container h-full w-full pt-2">{children}</div>
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ export default function AdminLayout({
 }>) {
   return (
     <>
-      <header className="flex w-full items-center justify-between bg-gray-200 px-4 py-8 text-center text-gray-900">
+      <header className="flex h-16 w-full items-center justify-between rounded-full bg-gray-200 px-8 text-center text-gray-900">
         <h1>Admin Dashboard</h1>
 
         <ul className="flex items-center justify-center gap-8">
@@ -20,13 +20,10 @@ export default function AdminLayout({
           </li>
         </ul>
       </header>
-      <div className="container relative flex h-full flex-col items-center justify-center font-lato text-white">
+
+      <div className="relative flex h-[calc(100%-64px)] items-center justify-center font-lato">
         {children}
       </div>
-
-      <footer className="w-full bg-gray-200 py-8 text-center text-gray-900">
-        <p>Lnk.bio - Simplify Your Links</p>
-      </footer>
     </>
   );
 }
