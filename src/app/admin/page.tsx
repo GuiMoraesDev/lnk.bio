@@ -1,40 +1,49 @@
-import { type ComponentProps } from "react";
+"use client";
+
+import * as Tabs from "@radix-ui/react-tabs";
 import { twMerge } from "tailwind-merge";
+
+import { LinksView } from "./views/Links/Links";
 
 export default function AdminPage() {
   return (
-    <main className="grid h-full w-full grid-cols-3 items-center gap-6">
-      <ManagerSection className="col-span-2" />
+    <main className="flex h-full w-full flex-col items-center gap-6">
+      <Tabs.Root
+        defaultValue="links"
+        className="mt-8 inline-flex h-full w-full flex-1 flex-col px-8"
+      >
+        <Tabs.List className="mb-4 border-b border-gray-200">
+          <Tabs.Trigger
+            value="links"
+            className={twMerge(
+              "p-2 transition",
+              "data-[state='active']:font-bold data-[state='active']:text-blue-500",
+              "hover:scale-105",
+            )}
+          >
+            Links
+          </Tabs.Trigger>
 
-      <PreviewSection />
+          <Tabs.Trigger
+            value="appearance"
+            className={twMerge(
+              "p-2 transition",
+              "data-[state='active']:font-bold data-[state='active']:text-blue-500",
+              "hover:scale-105",
+            )}
+          >
+            Appearance
+          </Tabs.Trigger>
+        </Tabs.List>
+
+        <Tabs.Content value="links" className="h-full w-full">
+          <LinksView />
+        </Tabs.Content>
+
+        <Tabs.Content value="appearance" className="h-full w-full">
+          <div />
+        </Tabs.Content>
+      </Tabs.Root>
     </main>
   );
 }
-
-const ManagerSection = ({ className, ...props }: ComponentProps<"div">) => {
-  return (
-    <div
-      className={twMerge(
-        "flex flex-col items-center justify-center",
-        className,
-      )}
-      {...props}
-    >
-      <h1>manager</h1>
-    </div>
-  );
-};
-
-const PreviewSection = ({ className, ...props }: ComponentProps<"div">) => {
-  return (
-    <div
-      className={twMerge(
-        "flex h-full w-full flex-col items-center justify-center border-l border-gray-300",
-        className,
-      )}
-      {...props}
-    >
-      <h1>preview</h1>
-    </div>
-  );
-};

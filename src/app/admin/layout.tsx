@@ -4,8 +4,8 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="container h-full w-full pt-2">
-      <header className="flex h-16 w-full items-center justify-between rounded-full bg-gray-200 px-8 text-center text-gray-900">
+    <div className="container h-full w-full py-2">
+      <header className="flex h-16 w-full items-center justify-between rounded-full border border-blue-100 bg-blue-50 px-8 text-center text-gray-900">
         <h1>Admin Dashboard</h1>
 
         <ul className="flex items-center justify-center gap-8">

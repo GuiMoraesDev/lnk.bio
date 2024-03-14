@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={twMerge(
-          "flex h-screen w-full flex-col items-center justify-center bg-gray-50 text-slate-800",
+          "flex h-screen w-full flex-col items-center justify-center bg-gray-100 text-slate-800",
           lato.className,
           firaSans.className,
         )}
