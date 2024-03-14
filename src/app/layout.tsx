@@ -35,7 +35,7 @@ export default function RootLayout({
           firaSans.className,
         )}
       >
-        <div className="container h-full w-full pt-2">{children}</div>
+        {children}
       </body>
     </html>
   );

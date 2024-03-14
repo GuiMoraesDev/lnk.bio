@@ -15,10 +15,10 @@ export default function LandingPage() {
       </p>
 
       <Link
-        href="/signup"
+        href="/signin"
         className="rounded-lg bg-blue-500 px-8 py-4 font-bold text-white transition duration-300 hover:bg-blue-600"
       >
-        Sign Up &rarr;
+        Sign In &rarr;
       </Link>
     </main>
   );
