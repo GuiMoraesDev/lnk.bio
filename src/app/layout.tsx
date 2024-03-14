@@ -16,7 +16,7 @@ const firaSans = Fira_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Lnk.bio",
+  title: "Lnk.bio - Simplify Your Links",
   description:
     "Simplify your online presence with a single, customizable link.",
 };
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body
         className={twMerge(
-          "flex h-[100dvh] w-full flex-col items-center gap-3 overflow-x-hidden bg-slate-900",
+          "flex h-[100dvh] w-full flex-col items-center overflow-x-hidden bg-slate-900",
           lato.className,
           firaSans.className,
         )}
