@@ -6,7 +6,7 @@ import { ManagerSection } from "./ManagerSection";
 import { PreviewSection } from "./PreviewSection";
 
 export const LinksView = ({ className, ...props }: ComponentProps<"div">) => {
-  const { links, handleAddLink } = useLinks([
+  const { links, handleAddLink, handleToggleLinkStatus } = useLinks([
     {
       title: "Google",
       url: "https://google.com",
@@ -36,6 +36,7 @@ export const LinksView = ({ className, ...props }: ComponentProps<"div">) => {
         className="col-span-2"
         links={links}
         handleAddLink={handleAddLink}
+        handleToggleLinkStatus={handleToggleLinkStatus}
       />
 
       <PreviewSection links={links} />

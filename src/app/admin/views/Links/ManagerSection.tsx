@@ -12,15 +12,18 @@ import { twMerge } from "tailwind-merge";
 import { type LinkProps } from "./hooks/useLinks";
 
 import { Modal } from "@/components/atoms/Modal";
+import { Toggle } from "@/components/atoms/Toggle";
 
 type ManagerSectionProps = ComponentPropsWithoutRef<"div"> & {
   links: LinkProps[];
   handleAddLink: (link: LinkProps) => void;
+  handleToggleLinkStatus: (index: number) => void;
 };
 
 export const ManagerSection = ({
   links,
   handleAddLink,
+  handleToggleLinkStatus,
   className,
   ...props
 }: ManagerSectionProps) => {
@@ -50,6 +53,7 @@ export const ManagerSection = ({
             title={link.title}
             url={link.url}
             isActive={link.isActive}
+            handleToggleLinkStatus={() => handleToggleLinkStatus(index)}
           />
         ))}
       </ul>
@@ -171,7 +175,16 @@ const AddLinkModal = ({
   );
 };
 
-const LinkCard = ({ title, url, isActive }: LinkProps) => {
+type LinkCardProps = LinkProps & {
+  handleToggleLinkStatus: () => void;
+};
+
+const LinkCard = ({
+  handleToggleLinkStatus,
+  title,
+  url,
+  isActive,
+}: LinkCardProps) => {
   return (
     <li className="flex w-full items-center justify-between rounded-md border border-gray-200 bg-gray-50 p-5">
       <section className="flex flex-col gap-2">
@@ -179,9 +192,7 @@ const LinkCard = ({ title, url, isActive }: LinkProps) => {
         <p>{url}</p>
       </section>
 
-      <button type="button" className="rounded-md bg-blue-500 p-2 text-white">
-        {isActive ? "Deactivate" : "Activate"}
-      </button>
+      <Toggle onCheckedChange={handleToggleLinkStatus} checked={isActive} />
     </li>
   );
 };
