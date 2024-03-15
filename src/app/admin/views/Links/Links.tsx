@@ -22,12 +22,97 @@ export const LinksView = ({ className, ...props }: ComponentProps<"div">) => {
       url: "https://twitter.com",
       isActive: true,
     },
+    {
+      title: "Instagram",
+      url: "https://instagram.com",
+      isActive: true,
+    },
+    {
+      title: "LinkedIn",
+      url: "https://linkedin.com",
+      isActive: true,
+    },
+    {
+      title: "Google",
+      url: "https://google.com",
+      isActive: true,
+    },
+    {
+      title: "Facebook",
+      url: "https://facebook.com",
+      isActive: true,
+    },
+    {
+      title: "Twitter",
+      url: "https://twitter.com",
+      isActive: true,
+    },
+    {
+      title: "Instagram",
+      url: "https://instagram.com",
+      isActive: true,
+    },
+    {
+      title: "LinkedIn",
+      url: "https://linkedin.com",
+      isActive: true,
+    },
+    {
+      title: "Google",
+      url: "https://google.com",
+      isActive: true,
+    },
+    {
+      title: "Facebook",
+      url: "https://facebook.com",
+      isActive: true,
+    },
+    {
+      title: "Twitter",
+      url: "https://twitter.com",
+      isActive: true,
+    },
+    {
+      title: "Instagram",
+      url: "https://instagram.com",
+      isActive: true,
+    },
+    {
+      title: "LinkedIn",
+      url: "https://linkedin.com",
+      isActive: true,
+    },
+    {
+      title: "Google",
+      url: "https://google.com",
+      isActive: true,
+    },
+    {
+      title: "Facebook",
+      url: "https://facebook.com",
+      isActive: true,
+    },
+    {
+      title: "Twitter",
+      url: "https://twitter.com",
+      isActive: true,
+    },
+    {
+      title: "Instagram",
+      url: "https://instagram.com",
+      isActive: true,
+    },
+    {
+      title: "LinkedIn",
+      url: "https://linkedin.com",
+      isActive: true,
+    },
   ]);
 
   return (
     <div
       className={twMerge(
-        "grid h-full w-full grid-cols-3 items-center gap-4",
+        "grid h-full w-full flex-1 grid-cols-3 items-center gap-4 overflow-hidden",
         className,
       )}
       {...props}

@@ -5,9 +5,7 @@ export default function LandingPageLayout({
 }>) {
   return (
     <>
-      <div className="container relative flex h-full flex-col items-center justify-center font-lato">
-        {children}
-      </div>
+      <main className="container mx-auto flex-1 font-lato">{children}</main>
 
       <footer className="w-full bg-gray-200 py-8 text-center">
         <p>Lnk.bio - Simplify Your Links</p>

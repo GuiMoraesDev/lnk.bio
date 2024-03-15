@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus } from "phosphor-react";
+import { Info, Plus } from "phosphor-react";
 import {
   useState,
   type ComponentProps,
@@ -30,14 +30,14 @@ export const ManagerSection = ({
   return (
     <div
       className={twMerge(
-        "relative flex h-full flex-col items-start justify-start gap-6",
+        "relative flex h-full flex-1 flex-col items-start justify-start gap-6 pb-2",
         className,
       )}
       {...props}
     >
       <YourLinkCard />
 
-      <div className="flex w-full flex-col gap-8">
+      <div className="flex w-full shrink-0 flex-col gap-8">
         <h1 className="font-fira-sans text-4xl">Manage your links</h1>
 
         <AddLinkModal onFormSubmit={handleAddLink}>
@@ -46,17 +46,19 @@ export const ManagerSection = ({
         </AddLinkModal>
       </div>
 
-      <ul className="flex w-full flex-col gap-4">
-        {links.map((link, index) => (
-          <LinkCard
-            key={index}
-            title={link.title}
-            url={link.url}
-            isActive={link.isActive}
-            handleToggleLinkStatus={() => handleToggleLinkStatus(index)}
-          />
-        ))}
-      </ul>
+      <div className="relative h-full w-full gap-4 overflow-y-auto overflow-x-hidden rounded-md">
+        <ul className="absolute flex w-full flex-1 flex-col gap-2 pr-2">
+          {links.map((link, index) => (
+            <LinkCard
+              key={index}
+              title={link.title}
+              url={link.url}
+              isActive={link.isActive}
+              handleToggleLinkStatus={() => handleToggleLinkStatus(index)}
+            />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
@@ -74,7 +76,9 @@ const YourLinkCard = ({ className, ...props }: ComponentProps<"div">) => {
       )}
       {...props}
     >
-      <section className="flex w-full flex-col items-center justify-between gap-2 md:flex-row">
+      <Info className="h-8 w-8 text-gray-400" />
+
+      <section className="flex w-full flex-col items-start justify-between gap-2 xl:flex-row">
         <p className="m-0 inline-flex gap-0.5">
           Your link is live in:{" "}
           <a
@@ -178,7 +182,6 @@ const AddLinkModal = ({
 type LinkCardProps = LinkProps & {
   handleToggleLinkStatus: () => void;
 };
-
 const LinkCard = ({
   handleToggleLinkStatus,
   title,

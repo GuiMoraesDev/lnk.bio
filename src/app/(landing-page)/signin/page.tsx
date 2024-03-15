@@ -4,7 +4,7 @@ import { SigninForm } from "./components/SigninForm";
 
 export default function SigninPage() {
   return (
-    <main className="flex flex-col items-center gap-8">
+    <div className="flex h-full flex-col items-center justify-center gap-6">
       <h1 className="text-3xl font-bold">
         Sign in for{" "}
         <a href="https://lnk.bio" className="text-blue-500">
@@ -23,6 +23,6 @@ export default function SigninPage() {
           Return to home
         </Link>
       </section>
-    </main>
+    </div>
   );
 }

@@ -4,7 +4,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="container h-full w-full py-2">
+    <main className="container mx-auto flex-1 overflow-hidden font-lato">
       <header className="flex h-16 w-full items-center justify-between rounded-full border border-blue-100 bg-blue-50 px-8 text-center text-gray-900">
         <h1>Admin Dashboard</h1>
 
@@ -21,9 +21,9 @@ export default function AdminLayout({
         </ul>
       </header>
 
-      <div className="relative flex h-[calc(100%-64px)] items-center justify-center font-lato">
+      <div className="mt-8 flex h-[calc(100%-96px)] flex-col items-center justify-start gap-6">
         {children}
       </div>
-    </div>
+    </main>
   );
 }

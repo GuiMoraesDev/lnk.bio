@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <main className="flex flex-col items-center gap-6">
+    <div className="flex h-full flex-col items-center justify-center gap-6">
       <h1 className="text-center text-4xl font-bold">
         Welcome to{" "}
         <a href="https://lnk.bio" className="text-blue-500">
@@ -20,6 +20,6 @@ export default function LandingPage() {
       >
         Sign In &rarr;
       </Link>
-    </main>
+    </div>
   );
 }
