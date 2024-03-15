@@ -119,7 +119,7 @@ const AddLinkModal = ({
   };
 
   return (
-    <Modal.Root open={isOpen}>
+    <Modal.Root open={isOpen} onOpenChange={setIsOpen}>
       <Modal.Trigger
         className={twMerge(
           "inline-flex w-full items-center justify-center gap-1 rounded-full bg-blue-700 p-4 text-white",
@@ -129,32 +129,43 @@ const AddLinkModal = ({
         {...props}
       />
 
-      <Modal.Content className="bg-gray-50">
+      <Modal.Content className="flex flex-col items-center justify-center bg-gray-50">
         <Modal.Header>
           <Modal.Title>Enter url</Modal.Title>
+        </Modal.Header>
 
-          <form
-            onSubmit={onSubmit}
-            className="flex items-center justify-center gap-4"
-          >
-            <input
-              type="text"
-              placeholder="Title"
-              className="rounded-md border border-gray-200 p-2"
-            />
-            <input
-              type="url"
-              placeholder="Url"
-              className="rounded-md border border-gray-200 p-2"
-            />
+        <form
+          onSubmit={onSubmit}
+          className="flex w-full max-w-sm flex-col items-center justify-center gap-4"
+        >
+          <input
+            type="text"
+            placeholder="Title"
+            className="w-full rounded-md border border-gray-200 p-2"
+          />
+          <input
+            type="url"
+            placeholder="Url"
+            className="w-full rounded-md border border-gray-200 p-2"
+          />
+
+          <section className="flex w-full items-center gap-4">
+            <button
+              type="button"
+              onClick={() => setIsOpen(false)}
+              className="w-full rounded-md border border-gray-400 bg-gray-200 p-2 text-gray-800"
+            >
+              Cancel
+            </button>
+
             <button
               type="submit"
-              className="rounded-md bg-blue-500 p-2 text-white"
+              className="w-full rounded-md bg-blue-500 p-2 text-white"
             >
               Add
             </button>
-          </form>
-        </Modal.Header>
+          </section>
+        </form>
       </Modal.Content>
     </Modal.Root>
   );
