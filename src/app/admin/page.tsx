@@ -3,7 +3,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import { twMerge } from "tailwind-merge";
 
-import { LinksView } from "./views/Links/Links";
+import { LinksView } from "./views/Links";
 
 export default function AdminPage() {
   return (

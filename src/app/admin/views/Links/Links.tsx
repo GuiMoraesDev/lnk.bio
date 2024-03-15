@@ -2,6 +2,7 @@ import { type ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
 import { ManagerSection } from "./ManagerSection";
+import { PreviewSection } from "./PreviewSection";
 
 export const LinksView = ({ className, ...props }: ComponentProps<"div">) => {
   return (
@@ -15,20 +16,6 @@ export const LinksView = ({ className, ...props }: ComponentProps<"div">) => {
       <ManagerSection className="col-span-2" />
 
       <PreviewSection />
-    </div>
-  );
-};
-
-const PreviewSection = ({ className, ...props }: ComponentProps<"div">) => {
-  return (
-    <div
-      className={twMerge(
-        "flex h-full w-full flex-col items-center justify-center border-l border-gray-300",
-        className,
-      )}
-      {...props}
-    >
-      <h1>preview</h1>
     </div>
   );
 };

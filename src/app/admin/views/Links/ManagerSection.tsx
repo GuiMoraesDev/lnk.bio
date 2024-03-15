@@ -5,6 +5,7 @@ import {
   useState,
   type ComponentProps,
   type ComponentPropsWithoutRef,
+  type FormEvent,
 } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -124,7 +125,7 @@ const AddLinkModal = ({
 }: AddLinkModalProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     onFormSubmit({
