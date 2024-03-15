@@ -9,40 +9,21 @@ import {
 } from "react";
 import { twMerge } from "tailwind-merge";
 
+import { type LinkProps } from "./hooks/useLinks";
+
 import { Modal } from "@/components/atoms/Modal";
 
-type LinkProps = {
-  title: string;
-  url: string;
-  isActive: boolean;
+type ManagerSectionProps = ComponentPropsWithoutRef<"div"> & {
+  links: LinkProps[];
+  handleAddLink: (link: LinkProps) => void;
 };
 
 export const ManagerSection = ({
+  links,
+  handleAddLink,
   className,
   ...props
-}: ComponentProps<"div">) => {
-  const [links, setLinks] = useState<LinkProps[]>([
-    {
-      title: "Google",
-      url: "https://google.com",
-      isActive: true,
-    },
-    {
-      title: "Facebook",
-      url: "https://facebook.com",
-      isActive: true,
-    },
-    {
-      title: "Twitter",
-      url: "https://twitter.com",
-      isActive: true,
-    },
-  ]);
-
-  const handleSubmit = (link: LinkProps) => {
-    setLinks((prev) => [...prev, link]);
-  };
-
+}: ManagerSectionProps) => {
   return (
     <div
       className={twMerge(
@@ -56,7 +37,7 @@ export const ManagerSection = ({
       <div className="flex w-full flex-col gap-8">
         <h1 className="font-fira-sans text-4xl">Manage your links</h1>
 
-        <AddLinkModal onFormSubmit={handleSubmit}>
+        <AddLinkModal onFormSubmit={handleAddLink}>
           <Plus className="h-4 w-4" />
           Add link
         </AddLinkModal>

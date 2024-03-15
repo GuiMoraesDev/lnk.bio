@@ -1,10 +1,29 @@
 import { type ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
+import { useLinks } from "./hooks/useLinks";
 import { ManagerSection } from "./ManagerSection";
 import { PreviewSection } from "./PreviewSection";
 
 export const LinksView = ({ className, ...props }: ComponentProps<"div">) => {
+  const { links, handleAddLink } = useLinks([
+    {
+      title: "Google",
+      url: "https://google.com",
+      isActive: true,
+    },
+    {
+      title: "Facebook",
+      url: "https://facebook.com",
+      isActive: true,
+    },
+    {
+      title: "Twitter",
+      url: "https://twitter.com",
+      isActive: true,
+    },
+  ]);
+
   return (
     <div
       className={twMerge(
@@ -13,9 +32,13 @@ export const LinksView = ({ className, ...props }: ComponentProps<"div">) => {
       )}
       {...props}
     >
-      <ManagerSection className="col-span-2" />
+      <ManagerSection
+        className="col-span-2"
+        links={links}
+        handleAddLink={handleAddLink}
+      />
 
-      <PreviewSection />
+      <PreviewSection links={links} />
     </div>
   );
 };
