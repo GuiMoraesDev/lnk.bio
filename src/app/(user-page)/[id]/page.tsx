@@ -27,8 +27,9 @@ export default function PreviewPage() {
       url: "https://github.com",
     },
   ];
+
   return (
-    <section className="flex flex-col items-center justify-center gap-8">
+    <main className="flex flex-col items-center justify-center gap-8">
       <Image
         src="/images/avatar-placeholder.png"
         alt="lnk.bio"
@@ -62,6 +63,6 @@ export default function PreviewPage() {
           </li>
         ))}
       </ul>
-    </section>
+    </main>
   );
 }

@@ -1,10 +1,17 @@
 "use client";
 
+import { useSession } from "next-auth/react";
+
 import { LinksView } from "./views/Links";
 
 import { TabNavigator } from "@/components/atoms/TabNavigator";
 
 export default function AdminPage() {
+  const { data: session } = useSession();
+
+  // eslint-disable-next-line no-console
+  console.log(session);
+
   return (
     <TabNavigator.Root defaultValue="links" className="px-8">
       <TabNavigator.List>

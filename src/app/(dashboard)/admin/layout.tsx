@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AdminLayout({
   children,
 }: Readonly<{
@@ -10,13 +12,13 @@ export default function AdminLayout({
 
         <ul className="flex items-center justify-center gap-8">
           <li>
-            <a href="/admin">Dashboard</a>
+            <Link href="/admin">Dashboard</Link>
           </li>
           <li>
-            <a href="/admin/settings">Settings</a>
+            <Link href="/admin/settings">Settings</Link>
           </li>
           <li>
-            <a href="/">Logout</a>
+            <Link href="/">Logout</Link>
           </li>
         </ul>
       </header>
