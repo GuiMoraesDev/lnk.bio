@@ -71,14 +71,14 @@ const YourLinkCard = ({ className, ...props }: ComponentProps<"div">) => {
   return (
     <div
       className={twMerge(
-        "flex w-full gap-4 rounded-md border border-gray-200 bg-gray-50 p-4 text-sm",
+        "flex w-full items-center gap-4 rounded-md border border-gray-200 bg-gray-50 p-4 text-sm",
         className,
       )}
       {...props}
     >
       <Info className="h-8 w-8 text-gray-400" />
 
-      <section className="flex w-full flex-col items-start justify-between gap-2 xl:flex-row">
+      <section className="flex w-full flex-col items-center justify-between gap-2 xl:flex-row">
         <p className="m-0 inline-flex gap-0.5">
           Your link is live in:{" "}
           <a
