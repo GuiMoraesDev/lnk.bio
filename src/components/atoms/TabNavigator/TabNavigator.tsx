@@ -23,17 +23,19 @@ TabsRoot.displayName = TabsPrimitive.Root.displayName;
 const TabsList = forwardRef<
   ElementRef<typeof TabsPrimitive.List>,
   ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.List
-    ref={ref}
-    className={twMerge(
-      "inline-flex h-9 w-full items-center justify-start gap-2 rounded-lg p-1",
-      "mb-4 border-b border-gray-200",
-      className,
-    )}
-    {...props}
-  />
-));
+>(({ className, ...props }, ref) => {
+  return (
+    <TabsPrimitive.List
+      ref={ref}
+      className={twMerge(
+        "inline-flex h-9 w-full items-center justify-start gap-2 overflow-x-auto whitespace-nowrap",
+        "mb-4 border-b border-gray-200",
+        className,
+      )}
+      {...props}
+    />
+  );
+});
 TabsList.displayName = TabsPrimitive.List.displayName;
 
 const TabsTrigger = forwardRef<
@@ -43,10 +45,11 @@ const TabsTrigger = forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={twMerge(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow",
-      "transition",
-      "data-[state='active']:font-bold data-[state='active']:text-blue-500",
-      "hover:scale-105",
+      "relative inline-flex h-full min-w-36 items-center justify-center whitespace-nowrap text-center text-sm text-gray-700 transition",
+      "disabled:pointer-events-none disabled:opacity-50",
+      "data-[state='active']:text-blue-600",
+      "before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:rounded-full before:bg-transparent before:transition before:content-['']",
+      "data-[state='active']:before:bg-blue-400",
       className,
     )}
     {...props}
