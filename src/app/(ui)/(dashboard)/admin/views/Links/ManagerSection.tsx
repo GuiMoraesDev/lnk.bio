@@ -9,11 +9,10 @@ import {
 } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { type LinkProps } from "./hooks/useLinks";
-
 import { Button } from "@/components/atoms/Button/Button";
 import { Modal } from "@/components/atoms/Modal";
 import { Toggle } from "@/components/atoms/Toggle";
+import { type LinkProps } from "@/views/UserView";
 
 type ManagerSectionProps = ComponentPropsWithoutRef<"div"> & {
   links: LinkProps[];
@@ -51,7 +50,7 @@ export const ManagerSection = ({
         <ul className="absolute flex w-full flex-1 flex-col gap-2 pr-2">
           {links.map((link, index) => (
             <LinkCard
-              key={index}
+              key={link.id}
               title={link.title}
               url={link.url}
               isActive={link.isActive}
@@ -119,6 +118,7 @@ const AddLinkModal = ({
     event.preventDefault();
 
     onFormSubmit({
+      id: Math.random().toString(36).substr(2, 9),
       title: "",
       url: "",
       isActive: true,
@@ -179,7 +179,7 @@ const AddLinkModal = ({
   );
 };
 
-type LinkCardProps = LinkProps & {
+type LinkCardProps = Omit<LinkProps, "id"> & {
   handleToggleLinkStatus: () => void;
 };
 const LinkCard = ({

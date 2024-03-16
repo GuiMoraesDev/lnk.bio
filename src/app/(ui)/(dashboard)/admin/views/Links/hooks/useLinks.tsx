@@ -1,10 +1,6 @@
 import { useState } from "react";
 
-export type LinkProps = {
-  title: string;
-  url: string;
-  isActive: boolean;
-};
+import { type LinkProps } from "@/views/UserView";
 
 export const useLinks = (initialState: LinkProps[]) => {
   const [links, setLinks] = useState<LinkProps[]>(initialState);

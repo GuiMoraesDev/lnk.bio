@@ -1,8 +1,8 @@
-import { ArrowSquareOut } from "phosphor-react";
+/* import { ArrowSquareOut } from "phosphor-react"; */
 import { type ComponentPropsWithoutRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { type LinkProps } from "./hooks/useLinks";
+import { type LinkProps, UserView } from "@/views/UserView";
 
 type PreviewSectionProps = ComponentPropsWithoutRef<"div"> & {
   links: LinkProps[];
@@ -23,8 +23,14 @@ export const PreviewSection = ({
     >
       <h1 className="font-fira-sans text-4xl">Preview</h1>
 
-      <div className="mx-auto flex aspect-[9/16] w-full flex-col items-center justify-start gap-4 rounded-3xl border-[8px] border-black p-4 pt-12">
-        <span className="block h-16 w-16 rounded-full bg-red-300" />
+      <div className="mx-auto flex aspect-[9/16] w-full flex-col items-center justify-start gap-4 rounded-[36px] border-[16px] border-gray-900 p-4 pt-12">
+        <UserView
+          avatar="https://via.placeholder.com/150"
+          name="Username"
+          description="User description"
+          links={links}
+        />
+        {/* <span className="block h-16 w-16 rounded-full bg-red-300" />
 
         <p>@username</p>
         <small>User description</small>
@@ -36,14 +42,13 @@ export const PreviewSection = ({
 
               return (
                 <a
-                  className="group flex w-full cursor-pointer items-center justify-between rounded-full border border-gray-200 bg-gray-50 px-4 py-2 text-sm"
+                  className="group flex w-full cursor-pointer items-center justify-between rounded-full border border-gray-200 bg-gray-50 p-4 text-sm"
                   key={title + url}
                   href={url}
                   target="_blank"
                 >
                   <section className="flex flex-col items-start justify-start">
                     <p>{title}</p>
-                    <p className="text-blue-400 group-hover:underline">{url}</p>
                   </section>
 
                   <ArrowSquareOut
@@ -54,7 +59,7 @@ export const PreviewSection = ({
               );
             })}
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

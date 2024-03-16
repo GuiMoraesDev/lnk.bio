@@ -1,68 +1,39 @@
-import Image from "next/image";
+import { type LinkProps, UserView } from "@/views/UserView";
 
 export default function PreviewPage() {
-  const links = [
+  const links: LinkProps[] = [
     {
-      name: "Google",
+      id: "1",
+      title: "Google",
       url: "https://google.com",
+      isActive: true,
     },
     {
-      name: "Facebook",
+      id: "2",
+      title: "Facebook",
       url: "https://facebook.com",
+      isActive: true,
     },
     {
-      name: "Twitter",
+      id: "3",
+      title: "Twitter",
       url: "https://twitter.com",
+      isActive: true,
     },
     {
-      name: "Instagram",
+      id: "4",
+      title: "Instagram",
       url: "https://instagram.com",
-    },
-    {
-      name: "LinkedIn",
-      url: "https://linkedin.com",
-    },
-    {
-      name: "GitHub",
-      url: "https://github.com",
+      isActive: true,
     },
   ];
 
   return (
-    <main className="flex flex-col items-center justify-center gap-8">
-      <Image
-        src="/images/avatar-placeholder.png"
-        alt="lnk.bio"
-        width={200}
-        height={200}
-        className="rounded-full"
-      />
-
-      <div className="flex flex-col items-center justify-center gap-3">
-        <h1 className="font-fira-sans text-2xl font-semibold">
-          @guimoraes.dev
-        </h1>
-
-        <p className="text-3xl">Discover my universe 🔭</p>
-      </div>
-
-      <ul className="flex w-full flex-col items-center gap-4">
-        {links.map((link) => (
-          <li
-            key={link.name}
-            className="inline-flex w-full items-center justify-center"
-          >
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full cursor-pointer items-center justify-center rounded-full border-2 border-black bg-slate-700 p-4 shadow-md shadow-black transition hover:scale-110"
-            >
-              {link.name}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <UserView
+      avatar="https://via.placeholder.com/150"
+      name="Username"
+      description="User description"
+      links={links}
+    />
   );
 }
