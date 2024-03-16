@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { SignIn } from "phosphor-react";
 
 export default function LandingPage() {
   return (
     <>
-      <main className="container mx-auto flex-1 font-lato">
+      <main className="container mx-auto flex-1 py-1 font-lato">
         <header className="flex h-16 w-full items-center justify-between rounded-full border border-blue-100 bg-blue-50 px-8 text-center text-gray-900">
           <Link href="/">
             <h1>Lnk.Bio</h1>
@@ -11,7 +14,9 @@ export default function LandingPage() {
 
           <ul className="flex items-center justify-center gap-8">
             <li>
-              <Link href="/signin">Sign In &rarr;</Link>
+              <Link href="/signin" className="inline-flex items-center gap-1">
+                Sign In <SignIn />
+              </Link>
             </li>
           </ul>
         </header>

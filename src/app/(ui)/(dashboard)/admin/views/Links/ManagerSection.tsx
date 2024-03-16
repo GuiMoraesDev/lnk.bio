@@ -11,6 +11,7 @@ import { twMerge } from "tailwind-merge";
 
 import { type LinkProps } from "./hooks/useLinks";
 
+import { Button } from "@/components/atoms/Button/Button";
 import { Modal } from "@/components/atoms/Modal";
 import { Toggle } from "@/components/atoms/Toggle";
 
@@ -93,13 +94,13 @@ const YourLinkCard = ({ className, ...props }: ComponentProps<"div">) => {
         <p>Share your Linktree to your socials</p>
       </section>
 
-      <button
+      <Button
         type="button"
-        className="text-nowrap rounded-md bg-blue-500 p-4 text-white"
+        /* className=" rounded-md bg-blue-500 p-4 text-white" */
         onClick={handleCopyLink}
       >
         Copy link
-      </button>
+      </Button>
     </div>
   );
 };
@@ -128,14 +129,16 @@ const AddLinkModal = ({
 
   return (
     <Modal.Root open={isOpen} onOpenChange={setIsOpen}>
-      <Modal.Trigger
-        className={twMerge(
-          "inline-flex w-full items-center justify-center gap-1 rounded-full bg-blue-700 p-4 text-white",
-          className,
-        )}
-        onClick={() => setIsOpen(true)}
-        {...props}
-      />
+      <Modal.Trigger asChild>
+        <Button
+          {...props}
+          className={className}
+          size="xl"
+          rounded="full"
+          fullWidth
+          onClick={() => setIsOpen(true)}
+        />
+      </Modal.Trigger>
 
       <Modal.Content className="flex flex-col items-center justify-center bg-gray-50">
         <Modal.Header>
@@ -158,20 +161,17 @@ const AddLinkModal = ({
           />
 
           <section className="flex w-full items-center gap-4">
-            <button
-              type="button"
+            <Button
+              variant="secondary"
+              fullWidth
               onClick={() => setIsOpen(false)}
-              className="w-full rounded-md border border-gray-400 bg-gray-200 p-2 text-gray-800"
             >
               Cancel
-            </button>
+            </Button>
 
-            <button
-              type="submit"
-              className="w-full rounded-md bg-blue-500 p-2 text-white"
-            >
+            <Button type="submit" fullWidth>
               Add
-            </button>
+            </Button>
           </section>
         </form>
       </Modal.Content>

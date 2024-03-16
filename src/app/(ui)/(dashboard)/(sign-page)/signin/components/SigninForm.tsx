@@ -1,7 +1,11 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { SignIn } from "phosphor-react";
 import { type FormEvent } from "react";
+
+import { Button } from "@/components/atoms/Button/Button";
 
 export const SigninForm = () => {
   const router = useRouter();
@@ -31,12 +35,9 @@ export const SigninForm = () => {
         className="rounded-lg border-2 border-gray-300 p-4"
       />
 
-      <button
-        type="submit"
-        className="rounded-lg bg-blue-500 px-8 py-4 text-center font-bold text-white transition duration-300 hover:bg-blue-600"
-      >
-        Sign In
-      </button>
+      <Button type="submit" size="xl">
+        Sign In <SignIn />
+      </Button>
     </form>
   );
 };
