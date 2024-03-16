@@ -189,10 +189,16 @@ const LinkCard = ({
   isActive,
 }: LinkCardProps) => {
   return (
-    <li className="flex w-full items-center justify-between rounded-md border border-gray-200 bg-gray-50 p-5">
-      <section className="flex flex-col gap-2">
-        <p>{title}</p>
-        <p>{url}</p>
+    <li className="flex w-full items-center justify-between rounded-xl border border-gray-200 bg-gray-50 p-4 shadow-sm">
+      <section className="flex flex-col gap-1">
+        <p className="text-sm font-semibold">{title}</p>
+        <a
+          href={url}
+          target="__blank"
+          className="text-sm text-blue-400 underline"
+        >
+          {url}
+        </a>
       </section>
 
       <Toggle onCheckedChange={handleToggleLinkStatus} checked={isActive} />
