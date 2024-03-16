@@ -29,6 +29,9 @@ const handler = NextAuth({
         password: { type: "password" },
       },
       async authorize(credentials) {
+        // eslint-disable-next-line no-console
+        console.log("credentials", credentials);
+
         const user = {
           id: "1",
           name: "J Smith",
