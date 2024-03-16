@@ -13,7 +13,7 @@ export default function AdminPage() {
   console.log(session);
 
   return (
-    <TabNavigator.Root defaultValue="links" className="px-8">
+    <TabNavigator.Root defaultValue="links" className="w-full px-8">
       <TabNavigator.List>
         <TabNavigator.Trigger value="links">Links</TabNavigator.Trigger>
 
@@ -27,7 +27,7 @@ export default function AdminPage() {
       </TabNavigator.Content>
 
       <TabNavigator.Content value="appearance">
-        <div />
+        <div className="h-full w-full" />
       </TabNavigator.Content>
     </TabNavigator.Root>
   );
